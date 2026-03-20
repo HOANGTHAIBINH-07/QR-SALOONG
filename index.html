@@ -5,10 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đoàn Thanh Niên Địa Phương</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .ani-gradient {
+        background: linear-gradient(120deg, rgba(226, 30, 49, 0.55), rgba(0, 80, 148, 0.55), rgba(255, 191, 26, 0.55), rgba(0, 136, 255, 0.35));
+        background-size: 300% 300%;
+        animation: gradientShift 15s ease infinite;
+      }
+      .ani-text {
+        animation: breathe 3s ease-in-out infinite;
+      }
+      @keyframes breathe {
+        0%, 100% { transform: scale(1); opacity: 0.95; }
+        50% { transform: scale(1.03); opacity: 1; }
+      }
+    </style>
   </head>
-  <body class="bg-gray-100 font-sans">
+  <body
+    class="bg-gradient-to-b from-blue-50 via-white to-blue-100 text-slate-800 font-sans"
+  >
     <!-- Header -->
-    <header class="bg-blue-700 text-white p-4 shadow-lg">
+    <header
+      class="bg-blue-800 text-white p-4 shadow-xl border-b-4 border-red-500 sticky top-0 z-50"
+    >
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <div class="flex items-center gap-3">
           <img
@@ -23,29 +46,52 @@
     </header>
 
     <!-- Banner -->
-    <section class="bg-blue-500 text-white text-center py-16">
-      <h2 class="text-3xl font-bold mb-4">Chào mừng đến với Đoàn Thanh Niên</h2>
-      <p class="text-lg">Năng động - Sáng tạo - Cống hiến</p>
+    <section class="relative overflow-hidden">
+      <img
+        src="background-doan-thanh-nien-9.jpg"
+        alt="Banner Đoàn Thanh Niên"
+        class="w-full h-72 md:h-96 object-cover"
+      />
+      <div class="absolute inset-0 ani-gradient mix-blend-screen"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+        <p class="text-sm md:text-base font-semibold text-red-300 uppercase tracking-wider mb-2 ani-text">Chung tay xây dựng quê hương</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg ani-text">Chào mừng đến với Đoàn Thanh Niên</h2>
+        <p class="mt-3 text-base md:text-xl font-bold text-white drop-shadow-lg max-w-2xl ani-text">Năng động - Sáng tạo - Cống hiến</p>
+        <a href="#hoat-dong"
+          class="mt-5 inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2 rounded-full shadow-lg transition">Khám phá hoạt động</a>
+      </div>
     </section>
 
     <!-- Hoạt động -->
-    <section class="max-w-6xl mx-auto py-12 px-4">
-      <h2 class="text-2xl font-bold mb-6 text-center">Hoạt động gần đây</h2>
-      <div class="grid md:grid-cols-3 gap-6">
+    <section class="max-w-5xl mx-auto py-8 px-4">
+      <h2 class="text-xl md:text-2xl font-bold mb-4 text-center text-blue-900">
+        Hoạt động gần đây
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <a
           href="https://sites.google.com/view/s-liu-sa-loong/trang-ch%E1%BB%A7"
           target="_blank"
+          class="h-full"
         >
-          <div class="bg-white p-4 rounded-2xl shadow">
-            <h3 class="font-semibold text-lg mb-2">Sơ lược về địa phương</h3>
-            <p>Tìm hiểu về lịch sử, văn hóa và con người địa phương.</p>
+          <div
+            class="h-full flex flex-col bg-white p-4 rounded-2xl shadow-lg border border-blue-300 hover:border-red-500 transition-colors"
+          >
+            <h3 class="font-semibold text-lg mb-2 text-blue-800">
+              Sơ lược về địa phương
+            </h3>
+            <p class="text-slate-700 flex-1">
+              Tìm hiểu về lịch sử, văn hóa và con người địa phương.
+            </p>
           </div>
         </a>
-        <div class="bg-white p-4 rounded-2xl shadow">
-          <h3 class="font-semibold text-lg mb-2">
-            Hướng dẫn đăng ký và sử dụng các dịch vụ số.
+        <div
+          class="h-full flex flex-col bg-white p-4 rounded-2xl shadow-lg border border-blue-300 hover:border-red-500 transition-colors"
+        >
+          <h3 class="font-semibold text-lg mb-2 text-blue-800">
+            Hướng dẫn đăng ký dịch vụ công.
           </h3>
-          <p>Đăng ký khai sinh</p>
+          <p class="flex-1">Đăng ký khai sinh</p>
           <p>Đăng ký kết hôn</p>
           <p>Đăng ký khai tử</p>
         </div>
@@ -53,11 +99,15 @@
     </section>
 
     <!-- Tin tức -->
-    <section class="bg-white py-12">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-bold mb-6 text-center">Tin tức mới</h2>
-        <ul class="space-y-4">
-          <li class="border-b pb-2">
+    <section class="bg-white py-8">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2
+          class="text-xl md:text-2xl font-bold mb-4 text-center text-blue-900"
+        >
+          Tin tức mới
+        </h2>
+        <ul class="space-y-3 text-slate-700">
+          <li class="border-b border-blue-200 pb-2">
             📢 Tổ chức thành công ngày hội thanh niên 2026
           </li>
           <li class="border-b pb-2">📢 Ra quân chiến dịch tình nguyện</li>
@@ -67,7 +117,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-700 text-white text-center p-4 mt-10">
+    <footer
+      class="bg-blue-900 text-white text-center p-4 mt-10 border-t-4 border-red-600"
+    >
       <p>© 2026 Đoàn Thanh Niên Xã Sa Loong</p>
       <p>Facebook: Tuổi Trẻ Xã Sa Loong</p>
     </footer>
