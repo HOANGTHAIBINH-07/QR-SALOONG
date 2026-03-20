@@ -34,6 +34,152 @@
       .ani-text {
         animation: floatWave 8s ease-in-out infinite;
       }
+      .popup-overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      .popup-box {
+        width: min(100%, 1000px);
+        max-width: 95vw;
+        max-height: 85vh;
+        border-radius: 16px;
+        border: 1px solid rgba(29, 78, 216, 0.25);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+        background: white;
+        overflow: hidden;
+        animation: popupZoom 0.25s ease;
+      }
+      .popup-header {
+        background: linear-gradient(90deg, #1d4ed8, #dc2626);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 1rem;
+        gap: 0.8rem;
+      }
+      .popup-content {
+        padding: 1rem;
+        overflow: auto;
+        max-height: calc(85vh - 72px);
+      }
+      .popup-close {
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .popup-close:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .link-card {
+        transition: all 0.25s ease;
+      }
+      .link-card.active {
+        transform: translateY(-2px);
+        border-color: #2563eb;
+        box-shadow: 0 12px 30px rgba(37, 99, 235, 0.2);
+      }
+      body {
+        min-height: 100vh;
+        background: linear-gradient(
+          to bottom,
+          #e0f2fe 0%,
+          #ffffff 60%,
+          #dbeafe 100%
+        );
+      }
+
+      .main-content {
+        padding-bottom: 6.5rem; /* khoảng trống để không bị nút fixed che */
+        min-height: calc(100vh - 170px);
+      }
+
+      .site-footer {
+        width: 100%;
+        background: linear-gradient(135deg, #0b1220 0%, #102a55 100%);
+        color: #e2e8f0;
+        padding: 1.2rem 1rem;
+        border-top: 1px solid rgba(191, 219, 254, 0.35);
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.65rem;
+      }
+
+      .footer-brand {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .footer-meta {
+        font-size: 0.85rem;
+        color: #cbd5e1;
+      }
+
+      .footer-nav a {
+        color: #bfdbfe;
+        text-decoration: none;
+        margin-right: 0.8rem;
+        transition: color 0.25s ease;
+      }
+
+      .footer-nav a:hover {
+        color: #f8fafc;
+      }
+
+      .btn-scroll-top {
+        bottom: 6rem;
+        right: 1rem;
+      }
+
+      @media (max-width: 640px) {
+        .btn-scroll-top {
+          bottom: 6.75rem;
+          right: 1rem;
+          width: 46px;
+          height: 46px;
+          font-size: 1.1rem;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-brand,
+        .footer-meta {
+          font-size: 0.8rem;
+        }
+
+        .footer-nav a {
+          margin: 0.25rem;
+        }
+      }
+      @keyframes popupZoom {
+        from {
+          transform: scale(0.93);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
       @keyframes overlayGlow {
         0%,
         100% {
@@ -73,8 +219,12 @@
           />
           <h1 class="text-xl font-bold">Đoàn Thanh Niên Xã Sa Loong</h1>
         </div>
-        <nav class="hidden md:flex items-center gap-4">
-          <a href="#gioithieu" class="text-white bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400 hover:from-red-600 hover:via-orange-600 hover:to-yellow-500 px-4 py-2 rounded-full shadow-lg transition duration-200 font-semibold">Giới thiệu về Sa Loong</a>
+        <nav class="flex items-center gap-4">
+          <a
+            href="#gioithieu"
+            class="text-white bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400 hover:from-red-600 hover:via-orange-600 hover:to-yellow-500 px-3 py-2 rounded-full shadow-lg transition duration-200 font-semibold text-xs sm:text-sm"
+            >Giới thiệu về Sa Loong</a
+          >
         </nav>
       </div>
     </header>
@@ -86,7 +236,9 @@
         alt="Banner Đoàn Thanh Niên"
         class="w-full h-72 md:h-96 object-cover"
       />
-      <div class="absolute inset-0 ani-gradient banner-overlay mix-blend-screen"></div>
+      <div
+        class="absolute inset-0 ani-gradient banner-overlay mix-blend-screen"
+      ></div>
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"
       ></div>
@@ -151,71 +303,144 @@
     <!-- Liên kết nhanh dịch vụ -->
     <section class="bg-blue-50 py-8">
       <div class="max-w-5xl mx-auto px-4">
-        <h2
-          class="text-xl md:text-2xl font-bold mb-4 text-center text-blue-900"
-        >
-          Liên kết nhanh
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="bg-white rounded-xl shadow border border-blue-200">
+        <div class="text-center mb-4">
+          <h2 class="text-xl md:text-2xl font-bold text-blue-900">
+            Liên kết nhanh
+          </h2>
+          <p class="text-blue-700">
+            Chọn nhanh dịch vụ và xem hướng dẫn chi tiết hoặc video
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <article
+            id="card-khaisinh"
+            class="link-card bg-white rounded-xl shadow border border-blue-200"
+          >
             <button
               class="w-full p-4 text-left flex items-center justify-between gap-3"
-              onclick="toggleSection('section-khaisinh')"
+              data-section="section-khaisinh"
+              onclick="toggleSection(this)"
             >
-              <span>
-                <strong class="text-blue-800">👶 Đăng ký khai sinh</strong>
-                <p class="text-sm text-slate-600">Thông tin & biểu mẫu khai sinh</p>
-              </span>
+              <div>
+                <p class="font-semibold text-blue-800">👶 Đăng ký khai sinh</p>
+                <p class="text-xs text-slate-600">
+                  Thông tin & biểu mẫu khai sinh
+                </p>
+              </div>
               <span id="icon-khaisinh">▶</span>
             </button>
-            <div id="section-khaisinh" class="hidden border-t border-blue-100 p-4 bg-blue-50">
-              <div class="flex flex-col gap-2">
-                <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700">📄 Hướng dẫn chi tiết</a>
-                <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg shadow-sm hover:bg-green-700">🎥 Xem video</a>
-              </div>
+            <div
+              id="section-khaisinh"
+              class="hidden border-t border-blue-100 p-4 bg-blue-50"
+            >
+              <button
+                onclick="openPopup('khai-sinh')"
+                class="w-full mb-2 inline-flex items-center justify-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700"
+              >
+                📄 Hướng dẫn chi tiết
+              </button>
+              <button
+                onclick="openPopup('khai-sinh', true)"
+                class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg shadow-sm hover:bg-green-700"
+              >
+                🎥 Xem video
+              </button>
             </div>
-          </div>
+          </article>
 
-          <div class="bg-white rounded-xl shadow border border-blue-200">
+          <article
+            id="card-kethon"
+            class="link-card bg-white rounded-xl shadow border border-blue-200"
+          >
             <button
               class="w-full p-4 text-left flex items-center justify-between gap-3"
-              onclick="toggleSection('section-kethon')"
+              data-section="section-kethon"
+              onclick="toggleSection(this)"
             >
-              <span>
-                <strong class="text-blue-800">💍 Đăng ký kết hôn</strong>
-                <p class="text-sm text-slate-600">Hướng dẫn, hồ sơ kết hôn</p>
-              </span>
+              <div>
+                <p class="font-semibold text-blue-800">💍 Đăng ký kết hôn</p>
+                <p class="text-xs text-slate-600">Hướng dẫn, hồ sơ kết hôn</p>
+              </div>
               <span id="icon-kethon">▶</span>
             </button>
-            <div id="section-kethon" class="hidden border-t border-blue-100 p-4 bg-blue-50">
-              <div class="flex flex-col gap-2">
-                <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700">📄 Hướng dẫn chi tiết</a>
-                <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg shadow-sm hover:bg-green-700">🎥 Xem video</a>
-              </div>
+            <div
+              id="section-kethon"
+              class="hidden border-t border-blue-100 p-4 bg-blue-50"
+            >
+              <button
+                onclick="openPopup('ket-hon')"
+                class="w-full mb-2 inline-flex items-center justify-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700"
+              >
+                📄 Hướng dẫn chi tiết
+              </button>
+              <button
+                onclick="openPopup('ket-hon', true)"
+                class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg shadow-sm hover:bg-green-700"
+              >
+                🎥 Xem video
+              </button>
             </div>
-          </div>
+          </article>
 
-          <div class="bg-white rounded-xl shadow border border-blue-200">
+          <article
+            id="card-khaitu"
+            class="link-card bg-white rounded-xl shadow border border-blue-200"
+          >
             <button
               class="w-full p-4 text-left flex items-center justify-between gap-3"
-              onclick="toggleSection('section-khaitu')"
+              data-section="section-khaitu"
+              onclick="toggleSection(this)"
             >
-              <span>
-                <strong class="text-blue-800">🕊️ Đăng ký khai tử</strong>
-                <p class="text-sm text-slate-600">Quy trình, thủ tục khai tử</p>
-              </span>
+              <div>
+                <p class="font-semibold text-blue-800">🕊️ Đăng ký khai tử</p>
+                <p class="text-xs text-slate-600">Quy trình, thủ tục khai tử</p>
+              </div>
               <span id="icon-khaitu">▶</span>
             </button>
-            <div id="section-khaitu" class="hidden border-t border-blue-100 p-4 bg-blue-50">
-              <div class="flex flex-col gap-2">
-                <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700">📄 Hướng dẫn chi tiết</a>
-                <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg shadow-sm hover:bg-green-700">🎥 Xem video</a>
-              </div>
+            <div
+              id="section-khaitu"
+              class="hidden border-t border-blue-100 p-4 bg-blue-50"
+            >
+              <button
+                onclick="openPopup('khai-tu')"
+                class="w-full mb-2 inline-flex items-center justify-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700"
+              >
+                📄 Hướng dẫn chi tiết
+              </button>
+              <button
+                onclick="openPopup('khai-tu', true)"
+                class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg shadow-sm hover:bg-green-700"
+              >
+                🎥 Xem video
+              </button>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
+
+    <div
+      id="popup-modal"
+      class="fixed inset-0 hidden items-center justify-center popup-overlay p-3 sm:p-4 z-50"
+    >
+      <div class="popup-box">
+        <div class="popup-header">
+          <h3 id="popup-title" class="font-semibold text-lg">Chi tiết</h3>
+          <button
+            onclick="closePopup()"
+            class="popup-close"
+            aria-label="Đóng popup"
+          >
+            ✕
+          </button>
+        </div>
+        <div
+          id="popup-content"
+          class="popup-content text-slate-800 text-sm sm:text-base"
+        ></div>
+      </div>
+    </div>
 
     <!-- Hỗ trợ nhanh -->
     <section class="max-w-5xl mx-auto py-8 px-4" id="hotro">
@@ -230,10 +455,18 @@
           <li>✉️ Email: <strong>hotro.dichvucong@sa-loong.gov.vn</strong></li>
         </ul>
         <div class="mt-4 border-t border-blue-100 pt-3">
-          <h3 class="font-semibold text-blue-800 mb-2">Lưu ý khi làm thủ tục online</h3>
+          <h3 class="font-semibold text-blue-800 mb-2">
+            Lưu ý khi làm thủ tục online
+          </h3>
           <ul class="list-disc list-inside text-slate-700 space-y-1">
-            <li>Chuẩn bị đầy đủ ảnh, giấy tờ/chứng từ hợp lệ trước khi nhập thủ tục online.</li>
-            <li>Điền thông tin chính xác từng mục, kiểm tra kỹ trước khi gửi, tránh chỉnh sửa nhiều lần.</li>
+            <li>
+              Chuẩn bị đầy đủ ảnh, giấy tờ/chứng từ hợp lệ trước khi nhập thủ
+              tục online.
+            </li>
+            <li>
+              Điền thông tin chính xác từng mục, kiểm tra kỹ trước khi gửi,
+              tránh chỉnh sửa nhiều lần.
+            </li>
             <li>Lưu mã hồ sơ/phiếu hẹn và liên hệ hotline nếu cần hỗ trợ.</li>
           </ul>
         </div>
@@ -242,33 +475,136 @@
 
     <!-- Footer -->
     <footer
-      class="bg-blue-900 text-white text-center p-4 mt-10 border-t-4 border-red-600"
+      class="w-full bg-gradient-to-r from-blue-900 to-indigo-900 text-white text-center py-4 shadow-inner border-t border-blue-700 z-40"
     >
-      <p>© 2026 Đoàn Thanh Niên Xã Sa Loong</p>
-      <p>Facebook: Tuổi Trẻ Xã Sa Loong</p>
+      <div
+        class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 px-4"
+      >
+        <div>
+          <p class="font-semibold">© 2026 Đoàn Thanh Niên Xã Sa Loong</p>
+          <p class="text-sm text-blue-100">Facebook: Tuổi Trẻ Xã Sa Loong</p>
+        </div>
+      </div>
     </footer>
 
-    <script>
-      function toggleSection(id) {
-        const section = document.getElementById(id);
-        const isHidden = section.classList.contains('hidden');
+    <button
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Lên đầu trang"
+      class="btn-scroll-top fixed rounded-full w-12 h-12 bg-blue-500 hover:bg-blue-400 transition font-medium shadow-lg text-white text-xl flex items-center justify-center z-50"
+    >
+      ↑
+    </button>
 
-        // đóng tất cả
-        ['section-khaisinh', 'section-kethon', 'section-khaitu'].forEach((key) => {
-          const sec = document.getElementById(key);
-          const icon = document.getElementById('icon-' + key.replace('section-', ''));
-          if (sec && icon) {
-            sec.classList.add('hidden');
-            icon.textContent = '▶';
-          }
+    <script>
+      let currentOpenSectionId = null;
+
+      function toggleSection(button) {
+        const id = button?.dataset?.section || button;
+        if (!id) return;
+
+        const tabs = [
+          {
+            section: "section-khaisinh",
+            iconId: "icon-khaisinh",
+            cardId: "card-khaisinh",
+          },
+          {
+            section: "section-kethon",
+            iconId: "icon-kethon",
+            cardId: "card-kethon",
+          },
+          {
+            section: "section-khaitu",
+            iconId: "icon-khaitu",
+            cardId: "card-khaitu",
+          },
+        ];
+
+        const isSwitch = currentOpenSectionId !== id;
+
+        // Close all tabs + reset
+        tabs.forEach(({ section, iconId, cardId }) => {
+          const sec = document.getElementById(section);
+          const icon = document.getElementById(iconId);
+          const card = document.getElementById(cardId);
+          if (sec) sec.classList.add("hidden");
+          if (icon) icon.textContent = "▶";
+          if (card) card.classList.remove("active");
         });
 
-        if (isHidden) {
-          section.classList.remove('hidden');
-          const icon = document.getElementById('icon-' + id.replace('section-', ''));
-          if (icon) icon.textContent = '▼';
+        if (isSwitch) {
+          const targetSection = document.getElementById(id);
+          const targetIcon = document.getElementById(
+            "icon-" + id.replace("section-", ""),
+          );
+          const targetCard = document.getElementById(
+            "card-" + id.replace("section-", ""),
+          );
+
+          if (targetSection) targetSection.classList.remove("hidden");
+          if (targetIcon) targetIcon.textContent = "▼";
+          if (targetCard) targetCard.classList.add("active");
+
+          currentOpenSectionId = id;
+        } else {
+          currentOpenSectionId = null;
         }
       }
+
+      function openPopup(topic, video = false) {
+        const popup = document.getElementById("popup-modal");
+        const title = document.getElementById("popup-title");
+        const content = document.getElementById("popup-content");
+
+        let filename = "";
+        let heading = "";
+        if (topic === "khai-sinh") {
+          filename = "khai-sinh.html";
+          heading = "Khai sinh";
+        } else if (topic === "ket-hon") {
+          filename = "kethon.html";
+          heading = "Kết hôn";
+        } else if (topic === "khai-tu") {
+          filename = "khai-tu.html";
+          heading = "Khai tử";
+        }
+
+        title.textContent =
+          (video ? "Xem video hướng dẫn đăng ký " : "Hướng dẫn đăng ký ") +
+          heading;
+        content.innerHTML = "<p>Đang tải...</p>";
+        fetch(filename)
+          .then((r) => r.text())
+          .then((html) => {
+            const doc = new DOMParser().parseFromString(html, "text/html");
+            const body = doc.body.innerHTML;
+            if (video) {
+              content.innerHTML =
+                '<div class="mb-3"><strong>Lên sóng video mẫu:</strong></div>' +
+                body;
+            } else {
+              content.innerHTML = body;
+            }
+          })
+          .catch(() => {
+            content.innerHTML =
+              '<p class="text-red-500">Không thể tải nội dung. Vui lòng thử lại sau.</p>';
+          });
+
+        popup.classList.remove("hidden");
+      }
+
+      function closePopup() {
+        const popup = document.getElementById("popup-modal");
+        popup.classList.add("hidden");
+      }
+
+      document.addEventListener("click", (event) => {
+        const popup = document.getElementById("popup-modal");
+        if (event.target === popup) {
+          closePopup();
+        }
+      });
     </script>
   </body>
 </html>
