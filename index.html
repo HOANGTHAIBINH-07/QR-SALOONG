@@ -570,8 +570,7 @@
         }
 
         title.textContent =
-          (video ? "Xem video hướng dẫn đăng ký " : "Hướng dẫn đăng ký ") +
-          heading;
+          (video ? "Hướng dẫn đăng ký " : "Hướng dẫn đăng ký ") + heading;
         content.innerHTML = "<p>Đang tải...</p>";
         fetch(filename)
           .then((r) => r.text())
@@ -580,7 +579,7 @@
             const body = doc.body.innerHTML;
             if (video) {
               content.innerHTML =
-                '<div class="mb-3"><strong>Lên sóng video mẫu:</strong></div>' +
+                // '<div class="mb-3"><strong>Lên sóng video mẫu:</strong></div>' +
                 body;
             } else {
               content.innerHTML = body;
