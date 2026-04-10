@@ -1,0 +1,20 @@
+"Chào bạn, sau đây là hướng dẫn chi tiết các bước đăng ký kết hôn trực tuyến trên Cổng dịch vụ công Quốc gia. 
+
+Bước 1: Đăng nhập hệ thống
+"Đầu tiên, bạn truy cập địa chỉ dịch vụ công chấm gờ o vê chấm vi en.
+ Nhấn vào nút Đăng nhập ở góc trên bên phải màn hình và chọn đăng nhập bằng tài khoản định danh điện tử vi en i ai đi."
+
+Bước 2: Tìm kiếm dịch vụ
+"Tại thanh tìm kiếm chính giữa, bạn nhập từ khóa 'Đăng ký kết hôn'. Hệ thống sẽ hiển thị danh sách, hãy chọn mục 'Đăng ký kết hôn thực hiện tại cấp xã' và nhấn Nộp trực tuyến."
+
+Bước 3: Chọn cơ quan thực hiện
+"Tiếp theo, bạn lựa chọn Tỉnh, Huyện và Xã nơi một trong hai bên nam hoặc nữ đang cư trú để giải quyết hồ sơ. Sau khi chọn xong, nhấn Đồng ý."
+
+Bước 4: Điền tờ khai điện tử
+"Tại giao diện tờ khai, hệ thống sẽ tự động hiển thị thông tin của người đăng nhập. Bạn hãy kiểm tra lại và điền đầy đủ thông tin của người còn lại theo đúng giấy tờ tùy thân. Lưu ý nhập chính xác số điện thoại và email để nhận thông báo từ cơ quan chức năng."
+
+Bước 5: Tải lên hồ sơ đính kèm
+"Bây giờ, hãy tải lên ảnh chụp hoặc bản quét các giấy tờ cần thiết như: Căn cước công dân và Giấy xác nhận tình trạng hôn nhân. Đảm bảo hình ảnh rõ nét, không bị mất góc để hồ sơ được duyệt nhanh chóng."
+
+Bước 6: Gửi hồ sơ và nhận kết quả
+"Cuối cùng, hãy kiểm tra lại toàn bộ thông tin một lần nữa, chọn hình thức nhận kết quả và nhấn Nộp hồ sơ. Sau khi gửi thành công, bạn sẽ nhận được một mã số hồ sơ để theo dõi tiến độ xử lý."

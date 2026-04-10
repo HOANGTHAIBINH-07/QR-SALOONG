@@ -285,6 +285,7 @@
             <li><strong>Khai sinh</strong> / Cấp giấy khai sinh</li>
             <li><strong>Kết hôn</strong> / Nộp hồ sơ đăng ký</li>
             <li><strong>Khai tử</strong> / Giấy báo tử</li>
+            <li><strong>Cấp thẻ căn cước</strong> cho công dân dưới 14 tuổi</li>
           </ul>
         </div>
         <div class="bg-white p-5 rounded-2xl shadow-lg border border-blue-200">
@@ -417,6 +418,41 @@
               </button>
             </div>
           </article>
+
+          <article
+            id="card-cap-can-cuoc"
+            class="link-card bg-white rounded-xl shadow border border-blue-200"
+          >
+            <button
+              class="w-full p-4 text-left flex items-center justify-between gap-3"
+              data-section="section-cap-can-cuoc"
+              onclick="toggleSection(this)"
+            >
+              <div>
+                <p class="font-semibold text-blue-800">📟 Cấp thẻ căn cước cho công dân dưới 14 tuổi</p>
+                <p class="text-xs text-slate-600">Thông tin và video hướng dẫn</p>
+              </div>
+              <span id="icon-cap-can-cuoc">▶</span>
+            </button>
+            <div
+              id="section-cap-can-cuoc"
+              class="hidden border-t border-blue-100 p-4 bg-blue-50"
+            >
+              <a
+                href="https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=57013"
+                target="_blank"
+                class="w-full mb-2 inline-flex items-center justify-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700"
+              >
+                📄 Hướng dẫn chi tiết
+              </a>
+              <button
+                onclick="openPopup('cap-can-cuoc', true)"
+                class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg shadow-sm hover:bg-green-700"
+              >
+                🎥 Xem video
+              </button>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -517,6 +553,11 @@
             iconId: "icon-khaitu",
             cardId: "card-khaitu",
           },
+          {
+            section: "section-cap-can-cuoc",
+            iconId: "icon-cap-can-cuoc",
+            cardId: "card-cap-can-cuoc",
+          },
         ];
 
         const isSwitch = currentOpenSectionId !== id;
@@ -566,6 +607,9 @@
         } else if (topic === "khai-tu") {
           filename = "khai-tu.html";
           heading = "Khai tử";
+        } else if (topic === "cap-can-cuoc") {
+          filename = "cap-can-cuoc.html";
+          heading = "Cấp thẻ căn cước";
         }
 
         title.textContent =
